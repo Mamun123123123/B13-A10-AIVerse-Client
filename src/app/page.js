@@ -1,6 +1,7 @@
 import AiTools from "@/components/AiTools";
 import Banner from "@/components/Banner";
 import DemoAccounts from "@/components/DemoAccount";
+import Footer from "@/components/Footer";
 import Reviews from "@/components/Reviews";
 import TopCreators from "@/components/TopCreators";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -15,6 +16,7 @@ export default function Home() {
       <Reviews />
       <AiTools />
       <DemoAccounts />
+      <Footer />
     </div>
   );
 }
