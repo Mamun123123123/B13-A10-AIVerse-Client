@@ -2,15 +2,18 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useSession, signOut } from "@/lib/auth-client";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const user = false;
+
+  const { data: session, isPending } = useSession();
+  const user = session?.user;
 
   return (
     <nav className="bg-[#0B0F1A] border-b border-purple-500/20">
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-        
+
         
         <Link href="/" className="flex items-center gap-2">
           <span className="text-3xl">✨</span>
@@ -19,35 +22,51 @@ const Navbar = () => {
           </h2>
         </Link>
 
-    
+        
         <div className="hidden md:flex items-center gap-8 text-white">
           <Link href="/">Home</Link>
           <Link href="/prompts">All Prompts</Link>
+
           {user && <Link href="/dashboard">Dashboard</Link>}
         </div>
 
         
-        <div className="hidden md:flex gap-3">
-          {!user ? (
+        <div className="hidden md:flex gap-3 items-center">
+
+          {isPending ? (
+            <span className="text-sm text-gray-300">Loading...</span>
+          ) : !user ? (
             <>
               <Link
                 href="/auth/login"
-                className="px-5 py-2 border border-gray-600 rounded-lg text-white"
+                className="px-5 py-2 border border-gray-600 rounded-lg text-white hover:bg-white/10 transition"
               >
                 Login
               </Link>
 
               <Link
                 href="/auth/register"
-                className="px-5 py-2 rounded-lg bg-purple-600 text-white"
+                className="px-5 py-2 rounded-lg bg-purple-600 text-white hover:bg-purple-700 transition"
               >
                 Register
               </Link>
             </>
           ) : (
-            <button className="px-5 py-2 rounded-lg bg-red-500 text-white">
-              Logout
-            </button>
+            <div className="flex items-center gap-3">
+
+              
+              <span className="text-white text-sm font-medium">
+                👋 {user?.name}
+              </span>
+
+              <button
+                onClick={() => signOut()}
+                className="px-4 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition"
+              >
+                Logout
+              </button>
+
+            </div>
           )}
         </div>
 
@@ -60,16 +79,13 @@ const Navbar = () => {
         </button>
       </div>
 
+      
       {open && (
         <div className="md:hidden bg-[#111827] border-t border-purple-500/20 px-4 py-4">
           <div className="flex flex-col gap-4 text-white">
-            <Link href="/" onClick={() => setOpen(false)}>
-              Home
-            </Link>
 
-            <Link href="/prompts" onClick={() => setOpen(false)}>
-              All Prompts
-            </Link>
+            <Link href="/" onClick={() => setOpen(false)}>Home</Link>
+            <Link href="/prompts" onClick={() => setOpen(false)}>All Prompts</Link>
 
             {user && (
               <Link href="/dashboard" onClick={() => setOpen(false)}>
@@ -79,26 +95,43 @@ const Navbar = () => {
 
             <hr className="border-gray-700" />
 
-            {!user ? (
+            {isPending ? (
+              <span className="text-sm text-gray-300">Loading...</span>
+            ) : !user ? (
               <>
                 <Link
                   href="/auth/login"
-                  className="text-center py-2 border border-gray-600 rounded-lg"
+                  className="py-2 text-center border border-gray-600 rounded-lg hover:bg-white/10"
+                  onClick={() => setOpen(false)}
                 >
                   Login
                 </Link>
 
                 <Link
                   href="/auth/register"
-                  className="text-center py-2 rounded-lg bg-purple-600"
+                  className="py-2 text-center bg-purple-600 rounded-lg hover:bg-purple-700"
+                  onClick={() => setOpen(false)}
                 >
                   Register
                 </Link>
               </>
             ) : (
-              <button className="py-2 rounded-lg bg-red-500 text-white">
-                Logout
-              </button>
+              <>
+                
+                <div className="text-white font-medium">
+                  👋 {user?.name}
+                </div>
+
+                <button
+                  onClick={() => {
+                    signOut();
+                    setOpen(false);
+                  }}
+                  className="py-2 rounded-lg bg-red-500 text-white hover:bg-red-600"
+                >
+                  Logout
+                </button>
+              </>
             )}
           </div>
         </div>
