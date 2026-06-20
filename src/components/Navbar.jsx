@@ -31,14 +31,14 @@ const Navbar = () => {
           {!user ? (
             <>
               <Link
-                href="/login"
+                href="/auth/login"
                 className="px-5 py-2 border border-gray-600 rounded-lg text-white"
               >
                 Login
               </Link>
 
               <Link
-                href="/register"
+                href="/auth/register"
                 className="px-5 py-2 rounded-lg bg-purple-600 text-white"
               >
                 Register
@@ -82,14 +82,14 @@ const Navbar = () => {
             {!user ? (
               <>
                 <Link
-                  href="/login"
+                  href="/auth/login"
                   className="text-center py-2 border border-gray-600 rounded-lg"
                 >
                   Login
                 </Link>
 
                 <Link
-                  href="/register"
+                  href="/auth/register"
                   className="text-center py-2 rounded-lg bg-purple-600"
                 >
                   Register
