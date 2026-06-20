@@ -33,7 +33,7 @@ const DemoAccounts = () => {
           Explore AIverse from different user perspectives.
         </p>
 
-
+   
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
 
           {accounts.map((account, idx) => (
@@ -41,12 +41,11 @@ const DemoAccounts = () => {
               key={idx}
               className={`bg-[#0B1120] rounded-2xl md:rounded-3xl border ${account.color} p-5 md:p-8 hover:scale-[1.02] transition-transform duration-300`}
             >
-   
+
               <span className="inline-block bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-[10px] md:text-xs">
                 {account.role}
               </span>
 
-             
               <div className="mt-6 md:mt-8 space-y-3 md:space-y-4">
                 <input
                   readOnly
@@ -61,10 +60,11 @@ const DemoAccounts = () => {
                 />
               </div>
 
-   
-              <button className="w-full mt-5 md:mt-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 py-3 rounded-lg md:rounded-xl text-white font-medium transition">
+             
+              <button className="w-full mt-5 md:mt-6 bg-gray-800 from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 py-3 rounded-lg md:rounded-xl text-white font-medium transition">
                 Go To Login →
               </button>
+
             </div>
           ))}
 

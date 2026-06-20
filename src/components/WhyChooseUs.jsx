@@ -64,7 +64,7 @@ const WhyChooseUs = () => {
               </p>
 
               {/* Bottom Accent */}
-              <div className="mt-5 h-[2px] w-0 group-hover:w-full bg-gradient-to-r from-purple-500 to-cyan-500 transition-all duration-300"></div>
+              <div className="mt-5 h-0.5 w-0 group-hover:w-full bg-gray-800 from-purple-500 to-cyan-500 transition-all duration-300"></div>
             </div>
           ))}
 

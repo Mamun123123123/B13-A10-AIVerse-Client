@@ -4,14 +4,14 @@ const Footer = () => {
   return (
     <footer className="relative bg-[#050816] border-t border-purple-500/20 overflow-hidden">
 
-      
+  
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(168,85,247,0.15),transparent_60%)] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 py-16 md:py-24 relative">
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
-
+    
           <div>
             <h2 className="text-3xl font-bold text-white">
               AI<span className="text-purple-500">verse</span>
@@ -21,7 +21,7 @@ const Footer = () => {
               Discover prompts and build production-ready AI solutions with ease.
             </p>
 
-            {/* Social */}
+            
             <div className="flex gap-5 mt-6 text-xl">
               <FaGithub className="text-gray-400 hover:text-white hover:scale-110 transition cursor-pointer" />
               <FaLinkedin className="text-gray-400 hover:text-blue-400 hover:scale-110 transition cursor-pointer" />
@@ -29,7 +29,7 @@ const Footer = () => {
             </div>
           </div>
 
-          
+      
           <div>
             <h3 className="text-white font-semibold mb-5 text-lg">
               Platform
@@ -38,14 +38,13 @@ const Footer = () => {
             <ul className="space-y-3 text-gray-400 text-sm md:text-base">
               {["All Prompts", "Trending Prompts", "Login", "Register"].map(
                 (item) => (
-                  <li
-                    key={item}
-                    className="relative w-fit cursor-pointer group"
-                  >
+                  <li key={item} className="relative w-fit cursor-pointer group">
                     <span className="group-hover:text-purple-400 transition">
                       {item}
                     </span>
-                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-purple-500 group-hover:w-full transition-all duration-300"></span>
+
+                   
+                    <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-500 group-hover:w-full transition-all duration-300"></span>
                   </li>
                 )
               )}
@@ -60,20 +59,18 @@ const Footer = () => {
 
             <ul className="space-y-3 text-gray-400 text-sm md:text-base">
               {["Firebase Auth", "Stripe", "UI Components"].map((item) => (
-                <li
-                  key={item}
-                  className="relative w-fit cursor-pointer group"
-                >
+                <li key={item} className="relative w-fit cursor-pointer group">
                   <span className="group-hover:text-purple-400 transition">
                     {item}
                   </span>
-                  <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-purple-500 group-hover:w-full transition-all duration-300"></span>
+
+                  <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-500 group-hover:w-full transition-all duration-300"></span>
                 </li>
               ))}
             </ul>
           </div>
 
-          
+         
           <div>
             <h3 className="text-white font-semibold mb-5 text-lg">
               Stay Updated
@@ -90,11 +87,13 @@ const Footer = () => {
                 className="px-4 py-3 rounded-xl bg-[#0B1120] border border-purple-500/20 text-white outline-none focus:border-purple-500 transition"
               />
 
-              <button className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-3 rounded-xl font-medium transition">
+              
+              <button className="bg-linear-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-3 rounded-xl font-medium transition">
                 Subscribe
               </button>
             </div>
           </div>
+
         </div>
 
         
