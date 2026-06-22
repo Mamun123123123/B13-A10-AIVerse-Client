@@ -1,13 +1,13 @@
-import DashboardStats from "@/components/dashboard/DashboardStats";
+import AddPromptForm from "@/components/dashboard/AddPromptForm";
 
 export default function Page() {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-6">
-        Creator Dashboard
+        Add New Prompt
       </h1>
 
-      <DashboardStats />
+      <AddPromptForm />
     </div>
   );
 }
