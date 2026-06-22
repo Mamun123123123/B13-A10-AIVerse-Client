@@ -1,13 +1,13 @@
-import DashboardSidebar from '@/components/dashboard/DashboardSidebar'
-import React from 'react'
+import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 
-const DashboardLayout = ({children}) => {
+export default function DashboardLayout({ children }) {
   return (
-    <div className='flex min-h-screen'>
+    <div className="flex min-h-screen bg-[#0B1220] text-white">
       <DashboardSidebar />
-      <div className='flex-1'>{children}</div>
-    </div>
-  )
-}
 
-export default DashboardLayout
+      <main className="flex-1 p-4 md:p-6 lg:p-8">
+        {children}
+      </main>
+    </div>
+  );
+}
