@@ -202,5 +202,7 @@ function Card({ title, value }) {
         {value}
       </p>
     </div>
+
+    
   );
 }
