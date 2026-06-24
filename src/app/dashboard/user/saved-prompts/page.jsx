@@ -72,7 +72,7 @@ export default function SavedPromptsPage() {
     }
   };
 
-  // Session Loading
+ 
   if (status === "loading") {
     return (
       <div className="flex justify-center items-center py-20">
