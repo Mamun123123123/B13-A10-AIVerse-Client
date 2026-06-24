@@ -72,7 +72,7 @@ export default function PromptDetailsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white px-4 py-8">
+    <div className="min-h-screen bg-gray-900 from-black to-gray-900 text-white px-4 py-8">
       <div className="max-w-4xl mx-auto bg-white/5 border border-white/10 rounded-3xl overflow-hidden shadow-xl">
 
         {/* Thumbnail */}
@@ -113,7 +113,7 @@ export default function PromptDetailsPage() {
             <Info label="Creator" value={prompt.userEmail} />
           </div>
 
-          {/* Tags */}
+        
           <div className="mb-8">
             <h3 className="font-semibold mb-2">Tags</h3>
 
@@ -138,10 +138,10 @@ export default function PromptDetailsPage() {
             </div>
           </div>
 
-          {/* Copy Button */}
+       
           <button
             onClick={handleCopy}
-            className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 transition"
+            className="w-full py-3 rounded-xl font-semibold bg-purple-600 from-purple-600 to-pink-600 hover:opacity-90 transition"
           >
             {copied ? "✅ Copied Successfully" : "📋 Copy Prompt"}
           </button>
@@ -157,7 +157,7 @@ function Info({ label, value }) {
   return (
     <div className="bg-white/5 border border-white/10 rounded-xl p-3">
       <p className="text-gray-400 text-xs">{label}</p>
-      <p className="font-medium break-words">{value}</p>
+      <p className="font-medium ">{value}</p>
     </div>
   );
 }

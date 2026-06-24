@@ -345,7 +345,7 @@ export default function AddPromptForm({ id }) {
         <button
           disabled={loading}
           type="submit"
-          className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold"
+          className="w-full py-3 rounded-xl bg-purple-600 from-purple-600 to-pink-500 text-white font-semibold"
         >
           {loading
             ? "Saving..."
