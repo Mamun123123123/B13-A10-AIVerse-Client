@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-8 text-white">
           <Link href="/">Home</Link>
           <Link href="/all-prompts">All Prompts</Link>
-          {user && <Link href="/dashboard/creator">Dashboard</Link>}
+          {user && <Link href="/dashboard">Dashboard</Link>}
         </div>
 
         {/* Desktop Auth */}
@@ -43,14 +43,14 @@ const Navbar = () => {
           ) : !user ? (
             <>
               <Link
-                href="/auth/login"
+                href="/login"
                 className="px-5 py-2 border border-gray-600 rounded-lg text-white hover:bg-white/10 transition"
               >
                 Login
               </Link>
 
               <Link
-                href="/auth/register"
+                href="/register"
                 className="px-5 py-2 rounded-lg bg-purple-600 text-white hover:bg-purple-700 transition"
               >
                 Register
@@ -95,7 +95,7 @@ const Navbar = () => {
             </Link>
 
             {user && (
-              <Link href="/dashboard/creator" onClick={() => setOpen(false)}>
+              <Link href="/dashboard" onClick={() => setOpen(false)}>
                 Dashboard
               </Link>
             )}
@@ -107,7 +107,7 @@ const Navbar = () => {
             ) : !user ? (
               <>
                 <Link
-                  href="/auth/login"
+                  href="/login"
                   className="py-2 text-center border border-gray-600 rounded-lg"
                   onClick={() => setOpen(false)}
                 >
@@ -115,7 +115,7 @@ const Navbar = () => {
                 </Link>
 
                 <Link
-                  href="/auth/register"
+                  href="/register"
                   className="py-2 text-center bg-purple-600 rounded-lg"
                   onClick={() => setOpen(false)}
                 >
