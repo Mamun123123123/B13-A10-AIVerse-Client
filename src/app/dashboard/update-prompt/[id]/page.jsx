@@ -1,6 +1,6 @@
 "use client";
 
-import AddPromptForm from "@/components/AddPromptForm";
+import AddPromptForm from "@/components/dashboard/AddPromptForm";
 import { useParams } from "next/navigation";
 
 export default function EditPromptPage() {

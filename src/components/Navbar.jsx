@@ -32,8 +32,8 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 text-white">
           <Link href="/">Home</Link>
-          <Link href="/prompts">All Prompts</Link>
-          {user && <Link href="/dashboard">Dashboard</Link>}
+          <Link href="/all-prompts">All Prompts</Link>
+          {user && <Link href="/dashboard/creator">Dashboard</Link>}
         </div>
 
         {/* Desktop Auth */}
@@ -90,12 +90,12 @@ const Navbar = () => {
               Home
             </Link>
 
-            <Link href="/prompts" onClick={() => setOpen(false)}>
+            <Link href="/all-prompts" onClick={() => setOpen(false)}>
               All Prompts
             </Link>
 
             {user && (
-              <Link href="/dashboard" onClick={() => setOpen(false)}>
+              <Link href="/dashboard/creator" onClick={() => setOpen(false)}>
                 Dashboard
               </Link>
             )}
