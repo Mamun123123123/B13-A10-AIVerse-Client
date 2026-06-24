@@ -123,7 +123,7 @@ All Prompts </h1>
     </select>
   </div>
 
-  {/* Loading */}
+
   {loading ? (
     <div className="text-center py-20">
       Loading prompts...
@@ -159,25 +159,10 @@ All Prompts </h1>
               {prompt.description}
             </p>
 
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 mb-4">
-              {prompt.tags?.map((tag, index) => (
-                <span
-                  key={index}
-                  className="px-2 py-1 text-xs rounded-full bg-purple-600"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            
 
-            {/* Info */}
-            <div className="space-y-1 text-sm text-gray-400 mb-5">
-              <p>Category: {prompt.category}</p>
-              <p>AI Tool: {prompt.aiTool}</p>
-              <p>Difficulty: {prompt.difficulty}</p>
-              <p>Copies: {prompt.copyCount || 0}</p>
-            </div>
+            
+           
 
             <Link
               href={`/all-prompts/${prompt._id}`}
