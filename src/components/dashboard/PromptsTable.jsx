@@ -1,8 +1,10 @@
 "use client";
+/* eslint-disable react-hooks/set-state-in-effect */
 
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { useSession } from "@/lib/auth-client";
+import { Eye } from "lucide-react";
 
 export default function PromptsTable() {
   const [prompts, setPrompts] = useState([]);
@@ -40,9 +42,7 @@ export default function PromptsTable() {
     }
   }, []);
 
-  // =========================
-  // SESSION SAFE FETCH
-  // =========================
+
   useEffect(() => {
     if (status === "loading") return;
 
@@ -50,16 +50,11 @@ export default function PromptsTable() {
     fetchPrompts(email);
   }, [session?.user?.email, status, fetchPrompts]);
 
-  // =========================
-  // REFRESH
-  // =========================
+
   const refreshData = () => {
     fetchPrompts(session?.user?.email);
   };
 
-  // =========================
-  // DELETE (FIXED + SAFE)
-  // =========================
   const handleDelete = async (id) => {
     const confirmed = window.confirm(
       "Are you sure you want to delete this prompt?"
@@ -81,7 +76,7 @@ export default function PromptsTable() {
         throw new Error(data.error || "Delete failed");
       }
 
-      // optimistic UI update
+  
       setPrompts((prev) =>
         prev.filter((p) => p._id !== id)
       );
@@ -91,9 +86,7 @@ export default function PromptsTable() {
     }
   };
 
-  // =========================
-  // LOADING STATE
-  // =========================
+
   if (status === "loading") {
     return (
       <div className="text-gray-400 p-6">
@@ -117,8 +110,8 @@ export default function PromptsTable() {
 
       <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[650px] text-left">
-            <thead className="bg-white/10 text-gray-300 text-sm">
+          <table className="w-full min-w-162 text-left">
+            <thead className="bg-white/10 text-gray-700 text-sm">
               <tr>
                 <th className="p-4">Title</th>
                 <th className="p-4">Prompt</th>
@@ -129,13 +122,13 @@ export default function PromptsTable() {
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan={3} className="p-10 text-center text-gray-400">
+                  <td colSpan={3} className="p-10 text-center text-gray-700">
                     Loading prompts...
                   </td>
                 </tr>
               ) : prompts.length === 0 ? (
                 <tr>
-                  <td colSpan={3} className="p-10 text-center text-gray-400">
+                  <td colSpan={3} className="p-10 text-center text-gray-700">
                     No prompts found. Create your first prompt 🚀
                   </td>
                 </tr>
@@ -145,16 +138,23 @@ export default function PromptsTable() {
                     key={p._id}
                     className="border-t border-white/10 hover:bg-white/5 transition"
                   >
-                    <td className="p-4 font-semibold text-white">
+                    <td className="p-4 font-semibold text-black">
                       {p.title}
                     </td>
 
-                    <td className="p-4 text-sm text-gray-400 max-w-[300px]">
+                    <td className="p-4 text-sm text-gray-900 max-w-75">
                       <p className="truncate">{p.prompt}</p>
                     </td>
 
                     <td className="p-4">
                       <div className="flex justify-end gap-2">
+                         <Link
+      href={`/all-prompts/${p._id}`}
+      className="flex items-center gap-1 px-3 py-1 text-sm rounded-lg bg-emerald-600 hover:bg-emerald-700 transition"
+    >
+      <Eye size={16} />
+      Details
+    </Link>
 
                         {/* EDIT */}
                         <Link
@@ -164,7 +164,7 @@ export default function PromptsTable() {
                           Edit
                         </Link>
 
-                        {/* DELETE */}
+                     
                         <button
                           onClick={() => handleDelete(p._id)}
                           className="px-3 py-1 text-sm rounded-lg bg-red-600 hover:bg-red-700 transition"
