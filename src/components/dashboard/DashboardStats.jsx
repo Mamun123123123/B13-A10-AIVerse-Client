@@ -120,12 +120,12 @@ fetchData();
 }, [session?.user?.email]);
 
 if (stats.loading) {
-return ( <div className="flex justify-center items-center min-h-[400px] text-white">
+return ( <div className="flex justify-center items-center min-h-100 text-white">
 Loading Dashboard... </div>
 );
 }
 
-return ( <div className="min-h-screen space-y-6 bg-gradient-to-br from-purple-950 via-violet-900 to-fuchsia-900 p-8 text-white">
+return ( <div className="min-h-screen space-y-6 bg-purple-900 from-purple-950 via-violet-900 to-fuchsia-900 p-8 text-white">
 
 
   {/* Header */}

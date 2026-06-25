@@ -40,7 +40,7 @@ export default function AllPromptsPage() {
   return (
     <div className="min-h-screen bg-gray-700 from-black via-gray-950 to-black text-white px-4 py-10">
 
-      {/* HEADER */}
+     
       <div className="max-w-7xl mx-auto mb-8">
         <h1 className="text-3xl sm:text-4xl font-bold">
           All Prompts 🚀
@@ -50,7 +50,7 @@ export default function AllPromptsPage() {
         </p>
       </div>
 
-      {/* FILTERS */}
+
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
 
         <input
@@ -95,7 +95,7 @@ export default function AllPromptsPage() {
 
       </div>
 
-      {/* CONTENT */}
+     
       <div className="max-w-7xl mx-auto">
 
         {loading ? (
@@ -115,7 +115,7 @@ export default function AllPromptsPage() {
                 className="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500 hover:scale-[1.02] transition duration-300 shadow-lg"
               >
 
-                {/* IMAGE */}
+              
                 {p.thumbnail && (
                   <div className="relative w-full h-48 overflow-hidden">
                     <Image
@@ -127,7 +127,7 @@ export default function AllPromptsPage() {
                   </div>
                 )}
 
-                {/* CONTENT */}
+             
                 <div className="p-5">
 
                   <h2 className="text-lg font-bold mb-2 line-clamp-1">
@@ -138,7 +138,7 @@ export default function AllPromptsPage() {
                     {p.description}
                   </p>
 
-                  {/* BADGES */}
+                
                   <div className="flex flex-wrap gap-2 mb-4 text-xs">
                     <span className="px-2 py-1 rounded-full bg-purple-600/30 text-purple-300">
                       {p.category}
@@ -153,7 +153,7 @@ export default function AllPromptsPage() {
                     </span>
                   </div>
 
-                  {/* BUTTON */}
+               
                   <Link
                     href={`/all-prompts/${p._id}`}
                     className="block text-center py-2 rounded-xl bg-purple-500 from-purple-600 to-pink-600 hover:opacity-90 transition font-medium"
