@@ -112,7 +112,7 @@ export default function ProfilePage() {
             <p className="mt-2 text-lg">{subscription}</p>
 
             {subscription === "Free" && (
-              <Link href="/payment">
+              <Link href="/user/payment">
                 <button className="mt-4 w-full bg-white text-black py-2 rounded-xl">
                   Upgrade
                 </button>
